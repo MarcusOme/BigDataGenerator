@@ -14,3 +14,18 @@ This project requires several components to be installed and used on your machin
 
 All the others packets should come inside the app or being gathered by the first compilation of the project by the usage of csproj file inside the project.
 
+## Folder structure
+There are two main folders inside the project:
+
+- WebApp: contains the Visual Studio Blazor project;
+- Database: contains scripts for generating the database in MSSQL;
+
+## Make the project work
+In order to make the project work is necessary following those steps:
+
+- Create the database by using the scripts provided inside the repository. Remember that this setup is minimal, feel free to expand it if you need (also remember to change the code in web app also);
+
+- Open the project in Visual Studio Preview and debug it;
+
+- On the web page that opens you will find 3 buttons, each one create records for one of the three tables that are created,
+
