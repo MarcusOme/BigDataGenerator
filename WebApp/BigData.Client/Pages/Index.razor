@@ -1,0 +1,49 @@
+﻿@page "/"
+@using BigData.Shared.Models
+@using BigData.Shared
+@inject HttpClient Http
+
+<h1>Create and configure</h1>
+<div class="row">
+    <div class="col-4">
+        <p>Create users.</p>
+        <button class="btn btn-primary" @onclick="@CreateUsers">CREATE</button>
+        <br /><br />
+        <textarea rows="10" cols="50">Stack: @call_stack_user </textarea>
+    </div>
+    <div class="col-4">
+        <p>Create products.</p>
+        <button class="btn btn-primary" @onclick="@CreateProducts">CREATE</button>
+        <br /><br />
+        <textarea rows="10" cols="50">Stack: @call_stack_product </textarea>
+    </div>
+    <div class="col-4">
+        <p>Create users.</p>
+        <button class="btn btn-primary" @onclick="@CreateUsers">CREATE</button>
+        <br /><br />
+        <textarea rows="10" cols="50">Stack: @call_stack_user </textarea>
+    </div>
+</div>
+@code {
+string call_stack_user = "";
+string call_stack_product = "";
+//call the server to create the data
+protected async Task CreateUsers()
+{
+    //call to server method to create the users
+    call_stack_user += "\n\nCreating users...\n";
+    Message msg = await Http.GetJsonAsync<Message>("api/CoreUser/InsertUserAction");
+    call_stack_user += msg.message;
+}
+
+protected async Task CreateProducts()
+{
+    //creating products
+    call_stack_product += "\n\nCreating purchase...\n";
+    Message msg_prod = await Http.GetJsonAsync<Message>("api/CoreProduct/InsertPurchaseAction");
+    call_stack_product += msg_prod.message;
+}
+
+}
+
+
