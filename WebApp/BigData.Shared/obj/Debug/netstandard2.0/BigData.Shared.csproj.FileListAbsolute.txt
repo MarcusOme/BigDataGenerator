@@ -9,3 +9,4 @@ C:\Users\Marco\source\repos\BigData\BigData.Shared\obj\Debug\netstandard2.0\BigD
 C:\Users\Marco\source\repos\BigData\BigData.Shared\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
 C:\Users\Marco\source\repos\BigData\BigData.Shared\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
 C:\Users\Marco\source\repos\BigData\BigData.Shared\obj\Debug\netstandard2.0\BigData.Shared.csproj.CopyComplete
+C:\Users\Marco\source\repos\BigData\BigData.Shared\obj\Debug\netstandard2.0\BigData.Shared.csprojAssemblyReference.cache

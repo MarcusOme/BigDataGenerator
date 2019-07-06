@@ -23,69 +23,45 @@ namespace BigData.Server.DataAccess
 
         public void InsertProduct()
         {
-            //load the book list
-            string[] allTitles = File.ReadAllText(@"Content\books_list.txt").Split(
-                new[] {'\n'},
-                StringSplitOptions.RemoveEmptyEntries
-                );
+            //set the number of elements present inside Amazon0302.txt file
+            int number = 262111;
 
-            //check the booklist to delete unecessary elements
-            List<string> titles = new List<string>();
-            foreach(var s in allTitles)
-            {
-                if (s.Contains('['))
-                {
-                    //need to delete, do nothing
-
-                }
-                else if (string.IsNullOrWhiteSpace(s))
-                {
-
-                }
-                else
-                {
-                    titles.Add(s);
-                }
-            }
-
-            //use title to insert them inside the database
-            int counter = 0;
-            Random r1 = new Random();
-            Random r2 = new Random();
+            //foreach of those entries create a product and insert inside the dataset
             List<CoreProduct> products = new List<CoreProduct>();
-            foreach (var t in titles)
+            Random rand = new Random();
+            Random price = new Random();
+            for (int i = 0; i < number; i++)
             {
-                int tmp1 = r1.Next(0, 730);
-                int tmp2 = r2.Next(0, 100);
-                var product = new CoreProduct()
+                int tmp_date = rand.Next(0, 730);   //two year span
+                decimal tmp_price = price.Next(10, 1000);
+                CoreProduct tmp = new CoreProduct()
                 {
-                    Name = t,
-                    InsertDate = DateTime.Now.AddDays(-tmp1),
-                    Price = tmp2
+                    ProdID = i,
+                    Price = tmp_price,
+                    InsertionDate = DateTime.Now.AddDays(-tmp_date)
                 };
-                products.Add(product);
-                
 
-                counter++;
-
-                if (counter % 10000 == 0)
+                products.Add(tmp);
+                if (i % 10000 == 0)
                 {
-                    //save inside database
+
                     db.tblCoreProduct.AddRange(products);
                     db.SaveChanges();
-                    db = new CoreProductContext();
+                    //empty the list
                     products.Clear();
+                    db = new CoreProductContext();
                 }
+
             }
-            if(products.Count > 0)
+            //check remaining
+            if (products.Count() > 0)
             {
+                db = new CoreProductContext();
                 db.tblCoreProduct.AddRange(products);
                 db.SaveChanges();
-                db = new CoreProductContext();
-                products.Clear();
             }
-
-            
+            db.Dispose();
+            products.Clear();
         }
     }
 }

@@ -4,44 +4,127 @@
 @inject HttpClient Http
 
 <h1>Create and configure</h1>
-<div class="row">
-    <div class="col-4">
-        <p>Create users.</p>
-        <button class="btn btn-primary" @onclick="@CreateUsers">CREATE</button>
-        <br /><br />
-        <textarea rows="10" cols="50">Stack: @call_stack_user </textarea>
+<div class="row p-1 mb-2 bg-dark text-white">
+    <div class="col-8">
+        <p>Create Users inside database</p>
     </div>
-    <div class="col-4">
-        <p>Create products.</p>
-        <button class="btn btn-primary" @onclick="@CreateProducts">CREATE</button>
-        <br /><br />
-        <textarea rows="10" cols="50">Stack: @call_stack_product </textarea>
+    <div class="col-2 text-right">
+        <button class="btn btn-success" @onclick="@CreateUsers">CREATE</button>
     </div>
-    <div class="col-4">
-        <p>Create users.</p>
-        <button class="btn btn-primary" @onclick="@CreateUsers">CREATE</button>
-        <br /><br />
-        <textarea rows="10" cols="50">Stack: @call_stack_user </textarea>
+    <div class="col-1">
+        @if (loading_user)
+        {
+            <div class="loader"></div>
+        }
+        else
+        {
+            <div class="loader no-display"></div>
+        }
     </div>
+    @if (user_end)
+    {
+        <div class="col-1 text-right"><span class="oi oi-check" aria-hidden="true"></span></div>
+    }
+    else
+    {
+        <div class="col-1"></div>
+    }
+</div>
+
+<div class="row p-1 mb-2 bg-dark text-white">
+    <div class="col-8">
+        <p>Create Product inside database</p>
+    </div>
+    <div class="col-2 text-right">
+        <button class="btn btn-success" @onclick="@CreateProducts">CREATE</button>
+    </div>
+    <div class="col-1">
+        @if (loading_product)
+        {
+            <div class="loader"></div>
+        }
+        else
+        {
+            <div class="loader no-display"></div>
+        }
+    </div>
+    @if (prod_end)
+    {
+        <div class="col-1 text-right"><span class="oi oi-check" aria-hidden="true"></span></div>
+    }
+    else
+    {
+        <div class="col-1"></div>
+    }
+</div>
+
+<div class="row p-1 mb-2 bg-dark text-white">
+    <div class="col-8">
+        <p>Create Purchases inside database</p>
+    </div>
+    <div class="col-2 text-right">
+        <button class="btn btn-success" @onclick="@CreatePurchase">CREATE</button>
+    </div>
+    <div class="col-1">
+        @if (loading_purchase)
+        {
+            <div class="loader"></div>
+        }
+        else
+        {
+            <div class="loader no-display"></div>
+        }
+    </div>
+    @if (purchase_end)
+    {
+        <div class="col-1 text-right"><span class="oi oi-check" aria-hidden="true"></span></div>
+    }
+    else
+    {
+        <div class="col-1"></div>
+    }
 </div>
 @code {
-string call_stack_user = "";
-string call_stack_product = "";
 //call the server to create the data
-protected async Task CreateUsers()
+
+Message message;
+
+bool loading_user = false;
+bool loading_product = false;
+bool loading_purchase = false;
+
+bool user_end = false;
+bool prod_end = false;
+bool purchase_end = false;
+
+public async Task CreateUsers()
 {
     //call to server method to create the users
-    call_stack_user += "\n\nCreating users...\n";
-    Message msg = await Http.GetJsonAsync<Message>("api/CoreUser/InsertUserAction");
-    call_stack_user += msg.message;
+    loading_user = true;
+    message = await Http.GetJsonAsync<Message>("api/CoreUser/InsertUserAction");
+    loading_user = false;
+    user_end = true;
+    base.StateHasChanged();
 }
 
 protected async Task CreateProducts()
 {
     //creating products
-    call_stack_product += "\n\nCreating purchase...\n";
-    Message msg_prod = await Http.GetJsonAsync<Message>("api/CoreProduct/InsertPurchaseAction");
-    call_stack_product += msg_prod.message;
+    loading_product = true;
+    Message msg_prod = await Http.GetJsonAsync<Message>("api/CoreProduct/InsertProductAction");
+    loading_product = false;
+    prod_end = true;
+    base.StateHasChanged();
+}
+
+protected async Task CreatePurchase()
+{
+    //creating purchase
+    loading_purchase = true;
+    Message msg_prod = await Http.GetJsonAsync<Message>("api/CorePurchase/InsertPurchaseAction");
+    loading_purchase = false;
+    purchase_end = true;
+    base.StateHasChanged();
 }
 
 }

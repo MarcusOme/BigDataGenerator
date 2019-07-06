@@ -3,18 +3,51 @@ C:\Users\Marco\.nuget\packages\microsoft.aspnetcore.blazor\3.0.0-preview6.19307.
 C:\Users\Marco\.nuget\packages\microsoft.aspnetcore.components\3.0.0-preview6.19307.2\lib\netstandard2.0\Microsoft.AspNetCore.Components.dll
 C:\Users\Marco\.nuget\packages\microsoft.aspnetcore.components.browser\3.0.0-preview6.19307.2\lib\netstandard2.0\Microsoft.AspNetCore.Components.Browser.dll
 C:\Users\Marco\.nuget\packages\microsoft.aspnetcore.metadata\3.0.0-preview6.19307.2\lib\netstandard2.0\Microsoft.AspNetCore.Metadata.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.csharp\4.3.0\lib\netstandard1.3\Microsoft.CSharp.dll
 C:\Users\Marco\.nuget\packages\microsoft.extensions.dependencyinjection\3.0.0-preview6.19304.6\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Marco\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\3.0.0-preview6.19304.6\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Marco\.nuget\packages\microsoft.extensions.logging.abstractions\3.0.0-preview6.19304.6\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Marco\.nuget\packages\microsoft.extensions.options\3.0.0-preview6.19304.6\lib\netstandard2.0\Microsoft.Extensions.Options.dll
 C:\Users\Marco\.nuget\packages\microsoft.extensions.primitives\3.0.0-preview6.19304.6\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll
 C:\Users\Marco\.nuget\packages\microsoft.jsinterop\3.0.0-preview6.19304.6\lib\netstandard2.0\Microsoft.JSInterop.dll
+C:\Users\Marco\.nuget\packages\microsoft.ml\1.1.0\lib\netstandard2.0\Microsoft.ML.Core.dll
+C:\Users\Marco\.nuget\packages\microsoft.ml\1.1.0\lib\netstandard2.0\Microsoft.ML.Data.dll
+C:\Users\Marco\.nuget\packages\microsoft.ml\1.1.0\lib\netstandard2.0\Microsoft.ML.KMeansClustering.dll
+C:\Users\Marco\.nuget\packages\microsoft.ml\1.1.0\lib\netstandard2.0\Microsoft.ML.PCA.dll
+C:\Users\Marco\.nuget\packages\microsoft.ml\1.1.0\lib\netstandard2.0\Microsoft.ML.StandardTrainers.dll
+C:\Users\Marco\.nuget\packages\microsoft.ml\1.1.0\lib\netstandard2.0\Microsoft.ML.Transforms.dll
+C:\Users\Marco\.nuget\packages\microsoft.ml.cpumath\1.1.0\lib\netstandard2.0\Microsoft.ML.CpuMath.dll
+C:\Users\Marco\.nuget\packages\microsoft.ml.dataview\1.1.0\lib\netstandard2.0\Microsoft.ML.DataView.dll
 C:\Users\Marco\.nuget\packages\mono.webassembly.interop\3.0.0-preview6.19304.6\lib\netstandard2.0\Mono.WebAssembly.Interop.dll
+C:\Users\Marco\.nuget\packages\newtonsoft.json\10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll
 C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.buffers\4.5.0\lib\netstandard2.0\System.Buffers.dll
+C:\Users\Marco\.nuget\packages\system.codedom\4.4.0\lib\netstandard2.0\System.CodeDom.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.collections.immutable\1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.collections.nongeneric\4.3.0\lib\netstandard1.3\System.Collections.NonGeneric.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.collections.specialized\4.3.0\lib\netstandard1.3\System.Collections.Specialized.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.componentmodel\4.3.0\lib\netstandard1.3\System.ComponentModel.dll
 C:\Users\Marco\.nuget\packages\system.componentmodel.annotations\4.6.0-preview6.19303.8\lib\netstandard2.0\System.ComponentModel.Annotations.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.componentmodel.primitives\4.3.0\lib\netstandard1.0\System.ComponentModel.Primitives.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.componentmodel.typeconverter\4.3.0\lib\netstandard1.5\System.ComponentModel.TypeConverter.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.dynamic.runtime\4.3.0\lib\netstandard1.3\System.Dynamic.Runtime.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.io.filesystem.primitives\4.3.0\lib\netstandard1.3\System.IO.FileSystem.Primitives.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.linq\4.3.0\lib\netstandard1.6\System.Linq.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.linq.expressions\4.3.0\lib\netstandard1.6\System.Linq.Expressions.dll
 C:\Users\Marco\.nuget\packages\system.memory\4.5.3\lib\netstandard2.0\System.Memory.dll
 C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.numerics.vectors\4.5.0\lib\netstandard2.0\System.Numerics.Vectors.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.objectmodel\4.3.0\lib\netstandard1.3\System.ObjectModel.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.reflection.emit\4.3.0\lib\netstandard1.3\System.Reflection.Emit.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.reflection.emit.ilgeneration\4.3.0\lib\netstandard1.3\System.Reflection.Emit.ILGeneration.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.reflection.emit.lightweight\4.3.0\lib\netstandard1.3\System.Reflection.Emit.Lightweight.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.reflection.typeextensions\4.3.0\lib\netstandard1.5\System.Reflection.TypeExtensions.dll
 C:\Users\Marco\.nuget\packages\system.runtime.compilerservices.unsafe\4.6.0-preview6.19303.8\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.runtime.serialization.formatters\4.3.0\lib\netstandard1.4\System.Runtime.Serialization.Formatters.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.runtime.serialization.primitives\4.3.0\lib\netstandard1.3\System.Runtime.Serialization.Primitives.dll
 C:\Users\Marco\.nuget\packages\system.text.json\4.6.0-preview6.19303.8\lib\netstandard2.0\System.Text.Json.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.text.regularexpressions\4.3.0\lib\netstandard1.6\System.Text.RegularExpressions.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.threading\4.3.0\lib\netstandard1.3\System.Threading.dll
+C:\Users\Marco\.nuget\packages\system.threading.tasks.dataflow\4.8.0\lib\netstandard2.0\System.Threading.Tasks.Dataflow.dll
 C:\Users\Marco\.nuget\packages\system.threading.tasks.extensions\4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.xml.readerwriter\4.3.0\lib\netstandard1.3\System.Xml.ReaderWriter.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.xml.xmldocument\4.3.0\lib\netstandard1.3\System.Xml.XmlDocument.dll
 C:\Users\Marco\source\repos\BigData\BigData.Shared\bin\Debug\netstandard2.0\BigData.Shared.dll
