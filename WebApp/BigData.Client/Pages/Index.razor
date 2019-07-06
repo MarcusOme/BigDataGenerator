@@ -60,7 +60,7 @@
 
 <div class="row p-1 mb-2 bg-dark text-white">
     <div class="col-8">
-        <p>Create Purchases inside database</p>
+        <p>Create Purchases inside database (only initial purchase)</p>
     </div>
     <div class="col-2 text-right">
         <button class="btn btn-success" @onclick="@CreatePurchase">CREATE</button>
@@ -83,6 +83,13 @@
     {
         <div class="col-1"></div>
     }
+</div>
+
+<div class="machine-learning-purchase">
+    <h3>Purchase Learning</h3>
+    <p>Populate with more purchase using a reccomendation algorithm (to better simulate a real world scenario):</p>
+    <button class="btn btn-danger">START LEARNING</button>
+
 </div>
 @code {
 //call the server to create the data

@@ -26,15 +26,18 @@
         "dependencies": {
           "BigData.Client": "1.0.0",
           "BigData.Shared": "1.0.0",
+          "Dapper": "1.60.6",
           "Microsoft.AspNetCore.Blazor.Server": "3.0.0-preview6.19307.2",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.0.0-preview6.19307.2",
           "Microsoft.EntityFrameworkCore": "3.0.0-preview6.19304.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.0.0-preview6.19304.10",
           "Microsoft.EntityFrameworkCore.Tools": "3.0.0-preview6.19304.10",
           "Microsoft.Extensions.Logging.Debug": "3.0.0-preview6.19304.6",
-          "Microsoft.ML": "1.1.0",
+          "Microsoft.ML": "1.2.0",
+          "Microsoft.ML.Recommender": "0.14.0",
           "Microsoft.NETCore.App": "3.0.0-preview6-27804-01",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.0.0-preview6-19319-03",
+          "Z.Dapper.Plus": "1.6.2",
           "Microsoft.AspNetCore.Antiforgery": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.0.0.0",
@@ -320,6 +323,22 @@
         },
         "compile": {
           "BigData.Server.dll": {}
+        }
+      },
+      "Dapper/1.60.6": {
+        "dependencies": {
+          "System.Data.SqlClient": "4.5.0",
+          "System.Reflection.Emit.Lightweight": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dapper.dll": {
+            "assemblyVersion": "1.60.0.0",
+            "fileVersion": "1.60.6.27094"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Dapper.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/3.0.0-preview6.19307.2": {
@@ -1019,10 +1038,10 @@
           "lib/netstandard2.0/Microsoft.JSInterop.dll": {}
         }
       },
-      "Microsoft.ML/1.1.0": {
+      "Microsoft.ML/1.2.0": {
         "dependencies": {
-          "Microsoft.ML.CpuMath": "1.1.0",
-          "Microsoft.ML.DataView": "1.1.0",
+          "Microsoft.ML.CpuMath": "1.2.0",
+          "Microsoft.ML.DataView": "1.2.0",
           "Newtonsoft.Json": "12.0.1",
           "System.CodeDom": "4.4.0",
           "System.Collections.Immutable": "1.6.0-preview6.19303.8",
@@ -1033,27 +1052,27 @@
         "runtime": {
           "lib/netstandard2.0/Microsoft.ML.Core.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           },
           "lib/netstandard2.0/Microsoft.ML.Data.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           },
           "lib/netstandard2.0/Microsoft.ML.KMeansClustering.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           },
           "lib/netstandard2.0/Microsoft.ML.PCA.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           },
           "lib/netstandard2.0/Microsoft.ML.StandardTrainers.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           },
           "lib/netstandard2.0/Microsoft.ML.Transforms.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           }
         },
         "runtimeTargets": {
@@ -1080,22 +1099,22 @@
           "runtimes/win-x64/native/FactorizationMachineNative.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           },
           "runtimes/win-x64/native/LdaNative.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           },
           "runtimes/win-x86/native/FactorizationMachineNative.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           },
           "runtimes/win-x86/native/LdaNative.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           }
         },
         "compile": {
@@ -1107,14 +1126,14 @@
           "lib/netstandard2.0/Microsoft.ML.Transforms.dll": {}
         }
       },
-      "Microsoft.ML.CpuMath/1.1.0": {
+      "Microsoft.ML.CpuMath/1.2.0": {
         "dependencies": {
           "System.Memory": "4.5.2"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.ML.CpuMath.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           }
         },
         "runtimeTargets": {
@@ -1131,30 +1150,66 @@
           "runtimes/win-x64/native/CpuMathNative.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           },
           "runtimes/win-x86/native/CpuMathNative.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.ML.CpuMath.dll": {}
         }
       },
-      "Microsoft.ML.DataView/1.1.0": {
+      "Microsoft.ML.DataView/1.2.0": {
         "dependencies": {
           "System.Memory": "4.5.2"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.ML.DataView.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.1.27804.5"
+            "fileVersion": "1.2.27902.10"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.ML.DataView.dll": {}
+        }
+      },
+      "Microsoft.ML.Recommender/0.14.0": {
+        "dependencies": {
+          "Microsoft.ML": "1.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ML.Recommender.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "0.14.27902.10"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libMatrixFactorizationNative.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libMatrixFactorizationNative.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/MatrixFactorizationNative.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.2.27902.10"
+          },
+          "runtimes/win-x86/native/MatrixFactorizationNative.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.2.27902.10"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.ML.Recommender.dll": {}
         }
       },
       "Microsoft.NETCore.App/3.0.0-preview6-27804-01": {
@@ -1727,6 +1782,9 @@
             "assemblyVersion": "4.0.1.0",
             "fileVersion": "4.6.26515.6"
           }
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
         }
       },
       "System.Console/4.3.0": {
@@ -1736,6 +1794,37 @@
           "System.IO": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0"
+        }
+      },
+      "System.Data.SqlClient/4.5.0": {
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.5.0",
+          "System.Security.Principal.Windows": "4.5.0",
+          "System.Text.Encoding.CodePages": "4.5.1",
+          "runtime.native.System.Data.SqlClient.sni": "4.4.0"
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/System.Data.SqlClient.dll": {
+            "assemblyVersion": "4.4.0.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "4.4.0.0",
+            "fileVersion": "4.6.26515.6"
+          },
+          "runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.4.0.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        },
+        "compile": {
+          "ref/netcoreapp2.1/System.Data.SqlClient.dll": {}
         }
       },
       "System.Diagnostics.Debug/4.3.0": {
@@ -1881,7 +1970,7 @@
           "System.Reflection.Emit.Lightweight": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -2007,12 +2096,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Reflection.TypeExtensions/4.3.0": {
-        "dependencies": {
-          "System.Reflection": "4.3.0",
-          "System.Runtime": "4.3.0"
-        }
-      },
+      "System.Reflection.TypeExtensions/4.4.0": {},
       "System.Resources.ResourceManager/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.0.0-preview6.19303.8",
@@ -2363,6 +2447,23 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "Z.Dapper.Plus/1.6.2": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.6.0-preview6.19303.8",
+          "Newtonsoft.Json": "12.0.1",
+          "System.Configuration.ConfigurationManager": "4.5.0",
+          "System.Data.SqlClient": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Z.Dapper.Plus.dll": {
+            "assemblyVersion": "1.6.2.0",
+            "fileVersion": "1.6.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Z.Dapper.Plus.dll": {}
+        }
+      },
       "BigData.Client/1.0.0": {
         "dependencies": {
           "BigData.Shared": "1.0.0",
@@ -2377,7 +2478,7 @@
       },
       "BigData.Shared/1.0.0": {
         "dependencies": {
-          "Microsoft.ML": "1.1.0"
+          "Microsoft.ML": "1.2.0"
         },
         "runtime": {
           "BigData.Shared.dll": {}
@@ -4068,6 +4169,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Dapper/1.60.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mmnJNhKMeF2KhvVXDoVQlFxre8aJAo71YBJrKqFlvuqzYC2QiXUq94/GCDBJzU7paq4GqpkV2glw3308TcGibw==",
+      "path": "dapper/1.60.6",
+      "hashPath": "dapper.1.60.6.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Authorization/3.0.0-preview6.19307.2": {
       "type": "package",
       "serviceable": true,
@@ -4418,26 +4526,33 @@
       "path": "microsoft.jsinterop/3.0.0-preview6.19304.6",
       "hashPath": "microsoft.jsinterop.3.0.0-preview6.19304.6.nupkg.sha512"
     },
-    "Microsoft.ML/1.1.0": {
+    "Microsoft.ML/1.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zRWNH4qeSBpemA6F6UFlz4djTSwSSttY5D0hDiGU8/9NNgf665x7gWIBUaJe4EvMsDWRiMnDjAzYt3nfi2FXyQ==",
-      "path": "microsoft.ml/1.1.0",
-      "hashPath": "microsoft.ml.1.1.0.nupkg.sha512"
+      "sha512": "sha512-4A4C3FphkZ1Aq0fc196CG/HobtO2JRbk6yy0DcPuAoI7/Gxog3tRh5QHM3QZ/NwzeN54QnlHlrtaYHwvoOoi+g==",
+      "path": "microsoft.ml/1.2.0",
+      "hashPath": "microsoft.ml.1.2.0.nupkg.sha512"
     },
-    "Microsoft.ML.CpuMath/1.1.0": {
+    "Microsoft.ML.CpuMath/1.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-11s2EEXWpiB5PkLrUNJxcsZ27Yp89/rT39uKG2r8QdsOcgS47hZLSplUsqs4YzYICq2e1mVvIVD0xgtoVhhDLA==",
-      "path": "microsoft.ml.cpumath/1.1.0",
-      "hashPath": "microsoft.ml.cpumath.1.1.0.nupkg.sha512"
+      "sha512": "sha512-77pBXNnOqiEVk+XaArP9Wm4cv8ZIUojrCcJ/dWpcZwcSFT6EkR00abyf0w+mMXa3MwO0D9X+JB+TIn4IAET28A==",
+      "path": "microsoft.ml.cpumath/1.2.0",
+      "hashPath": "microsoft.ml.cpumath.1.2.0.nupkg.sha512"
     },
-    "Microsoft.ML.DataView/1.1.0": {
+    "Microsoft.ML.DataView/1.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-AQxQaK9sUDcqBFeQ1uTK/9kY4SVMrBsCTqg9mA92JnGzu05l1ogm+irSgxeswhUIxx2APbt0CoFuvJaNBcqKsQ==",
-      "path": "microsoft.ml.dataview/1.1.0",
-      "hashPath": "microsoft.ml.dataview.1.1.0.nupkg.sha512"
+      "sha512": "sha512-gCw9vRhFNt3Ow8TfnsIW4RKVTFxI7OtPGiDAr62swY7xexVjICIIvxrytMMDbVOXPxxH2uxfOlw3n2l9mZaz5g==",
+      "path": "microsoft.ml.dataview/1.2.0",
+      "hashPath": "microsoft.ml.dataview.1.2.0.nupkg.sha512"
+    },
+    "Microsoft.ML.Recommender/0.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-02QPWUmavVAhr1Dnyqen/sG9EM/haqvlB9TR7FAPa18UAYaCqWGbFA3Gz4virzB9xwA0419I3o9ZqqUqdjupvg==",
+      "path": "microsoft.ml.recommender/0.14.0",
+      "hashPath": "microsoft.ml.recommender.0.14.0.nupkg.sha512"
     },
     "Microsoft.NETCore.App/3.0.0-preview6-27804-01": {
       "type": "package",
@@ -4824,6 +4939,13 @@
       "path": "system.console/4.3.0",
       "hashPath": "system.console.4.3.0.nupkg.sha512"
     },
+    "System.Data.SqlClient/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7xeDd8j7T/j2/OWsbVCx1QmCaHf2AnML0FXslTeo4My3F9tAcdSzrnrLdIi49bzNazHykQIfyU5nb3+jmE/CoQ==",
+      "path": "system.data.sqlclient/4.5.0",
+      "hashPath": "system.data.sqlclient.4.5.0.nupkg.sha512"
+    },
     "System.Diagnostics.Debug/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -5020,12 +5142,12 @@
       "path": "system.reflection.primitives/4.3.0",
       "hashPath": "system.reflection.primitives.4.3.0.nupkg.sha512"
     },
-    "System.Reflection.TypeExtensions/4.3.0": {
+    "System.Reflection.TypeExtensions/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7u6ulLcZbyxB5Gq0nMkQttcdBTx57ibzw+4IOXEfR+sXYQoHvjW5LTLyNr8O22UIMrqYbchJQJnos4eooYzYJA==",
-      "path": "system.reflection.typeextensions/4.3.0",
-      "hashPath": "system.reflection.typeextensions.4.3.0.nupkg.sha512"
+      "sha512": "sha512-dkmh/ySlwnXJp/1qYP9uyKkCK1CXR/REFzl7abHcArxBcV91mY2CgrrzSRA5Z/X4MevJWwXsklGRdR3A7K9zbg==",
+      "path": "system.reflection.typeextensions/4.4.0",
+      "hashPath": "system.reflection.typeextensions.4.4.0.nupkg.sha512"
     },
     "System.Resources.ResourceManager/4.3.0": {
       "type": "package",
@@ -5257,6 +5379,13 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "Z.Dapper.Plus/1.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mcVZoYuhgkSxpN/cM8pp9ZjhIppSNsKdGeVWWsD16bcZ7nUZso2EnJxzvX2dI9IRSMhSfjYCmPPCBoNKXbOj8w==",
+      "path": "z.dapper.plus/1.6.2",
+      "hashPath": "z.dapper.plus.1.6.2.nupkg.sha512"
     },
     "BigData.Client/1.0.0": {
       "type": "project",

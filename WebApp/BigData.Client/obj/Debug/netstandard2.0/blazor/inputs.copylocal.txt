@@ -50,4 +50,4 @@ C:\Users\Marco\.nuget\packages\system.threading.tasks.dataflow\4.8.0\lib\netstan
 C:\Users\Marco\.nuget\packages\system.threading.tasks.extensions\4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll
 C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.xml.readerwriter\4.3.0\lib\netstandard1.3\System.Xml.ReaderWriter.dll
 C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.xml.xmldocument\4.3.0\lib\netstandard1.3\System.Xml.XmlDocument.dll
-C:\Users\Marco\source\repos\BigData\BigData.Shared\bin\Debug\netstandard2.0\BigData.Shared.dll
+C:\Users\Marco\Documents\BigDataGenerator\WebApp\BigData.Shared\bin\Debug\netstandard2.0\BigData.Shared.dll
