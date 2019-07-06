@@ -18,7 +18,7 @@ All the others packets should come inside the app or being gathered by the first
 There are two main folders inside the project:
 
 - WebApp: contains the Visual Studio Blazor project;
-- Database: contains scripts for generating the database in MSSQL;
+- DB: contains scripts for generating the database in MSSQL;
 
 ## Make the project work
 In order to make the project work is necessary following those steps:
