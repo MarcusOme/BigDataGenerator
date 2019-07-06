@@ -84,12 +84,37 @@
         <div class="col-1"></div>
     }
 </div>
-
+<br />
 <div class="machine-learning-purchase">
     <h3>Purchase Learning</h3>
     <p>Populate with more purchase using a reccomendation algorithm (to better simulate a real world scenario):</p>
-    <button class="btn btn-danger">START LEARNING</button>
-
+    <button class="btn btn-warning" @onclick="@ModelLearn">START LEARNING</button>
+    <br /><br />
+    @if (training)
+    {
+    
+    <div class="row p-1 mb-2">
+        <div class="col-8">Inserting purchase after creating ML model</div>
+        <div class="col-1">
+            @if (creating_ml_purchase)
+            {
+                <div class="loader"></div>
+            }
+            else
+            {
+                <div class="loader no-display"></div>
+            }
+        </div>
+        @if (insert_end)
+        {
+            <div class="col-1 text-right"><span class="oi oi-check" aria-hidden="true"></span></div>
+        }
+        else
+        {
+            <div class="col-1"></div>
+        }
+    </div>
+    }
 </div>
 @code {
 //call the server to create the data
@@ -131,6 +156,25 @@ protected async Task CreatePurchase()
     Message msg_prod = await Http.GetJsonAsync<Message>("api/CorePurchase/InsertPurchaseAction");
     loading_purchase = false;
     purchase_end = true;
+    base.StateHasChanged();
+}
+
+
+//train the model
+bool loading_ml_model = false;
+bool train_end = false;
+bool training = false;
+bool creating_ml_purchase = false;
+bool insert_end = false;
+protected async Task ModelLearn()
+{
+    training = true;
+
+    creating_ml_purchase = true;
+    Message msg_insert = await Http.GetJsonAsync<Message>("api/CorePurchase/ModelInsert");
+    creating_ml_purchase = false;
+    insert_end = true;
+
     base.StateHasChanged();
 }
 

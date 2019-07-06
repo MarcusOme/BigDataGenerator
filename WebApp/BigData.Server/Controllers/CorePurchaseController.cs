@@ -33,5 +33,37 @@ namespace BigData.Server.Controllers
                 return Json(new { message = ex.ToString() });
             }
         }
+
+        [HttpGet("[action]")]
+        public JsonResult TrainModel()
+        {
+            try
+            {
+                Stopwatch stopwatch = Stopwatch.StartNew();
+                rep.TrainModelAction();
+                stopwatch.Stop();
+                return Json(new { message = "\nEllapsed time: " + stopwatch.ElapsedMilliseconds + "ms\n---DONE---\n" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { message = ex.ToString() });
+            }
+        }
+
+        [HttpGet("[action]")]
+        public JsonResult ModelInsert()
+        {
+            try
+            {
+                Stopwatch stopwatch = Stopwatch.StartNew();
+                rep.PurchaseModelInsertion();
+                stopwatch.Stop();
+                return Json(new { message = "\nEllapsed time: " + stopwatch.ElapsedMilliseconds + "ms\n---DONE---\n" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { message = ex.ToString() });
+            }
+        }
     }
 }

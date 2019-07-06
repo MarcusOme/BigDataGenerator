@@ -21,8 +21,6 @@ namespace BigData.Server.DataAccess
 
         string conn_str = @"Server=.\SQLExpress;Database=BigData;Trusted_Connection=True;MultipleActiveResultSets=true";
 
-        //define the engine to perform the prediction
-        PredictionEngine<ProductEntry, Copurchase_prediction> predictionengine;
         /// <summary>
         /// Function to get all the purchase present inside the database
         /// </summary>
@@ -137,49 +135,107 @@ namespace BigData.Server.DataAccess
         /// <returns>
         /// PredictionEngine<a,b>, represent the engine that gives 2 id return a probability score of being suggested
         /// </returns>
-        public void InsertTrainedPurchase()
+        public PredictionEngine<ProductEntry, Copurchase_prediction> TrainModelAction()
         {
-            //create the ML context
-            MLContext mlContext = new MLContext();
+            try
+            {
+                //create the ML context
+                MLContext mlContext = new MLContext();
 
-            //read data from Amazon file
-            string train_location = "/Content/Amazon0302.txt";
-            var traindata = mlContext.Data.LoadFromTextFile(path: train_location,
-                                                      columns: new[]
-                                                                {
+                //read data from Amazon file
+                string train_location = @"Content\Amazon0302.txt";
+                var traindata = mlContext.Data.LoadFromTextFile(path: train_location,
+                                                          columns: new[]
+                                                                    {
                                                                     new TextLoader.Column("Label", DataKind.Single, 0),
                                                                     new TextLoader.Column(name:nameof(ProductEntry.ProductID), dataKind:DataKind.UInt32,                source: new [] { new TextLoader.Range(0) }, keyCount: new KeyCount(262111)),
                                                                     new TextLoader.Column(name:nameof(ProductEntry.CoPurchaseProductID),                                dataKind:DataKind.UInt32, source: new [] { new TextLoader.Range(1) }, keyCount: new KeyCount(262111))
-                                                                },
-                                                      hasHeader: true,
-                                                      separatorChar: '\t');
+                                                                    },
+                                                          hasHeader: true,
+                                                          separatorChar: '\t');
 
-            MatrixFactorizationTrainer.Options options = new MatrixFactorizationTrainer.Options();
-            options.MatrixColumnIndexColumnName = nameof(ProductEntry.ProductID);
-            options.MatrixRowIndexColumnName = nameof(ProductEntry.CoPurchaseProductID);
-            options.LabelColumnName = "Label";
-            options.LossFunction = MatrixFactorizationTrainer.LossFunctionType.SquareLossOneClass;
-            options.Alpha = 0.01;
-            options.Lambda = 0.025;
-            // For better results use the following parameters
-            options.C = 0.00001;
+                MatrixFactorizationTrainer.Options options = new MatrixFactorizationTrainer.Options();
+                options.MatrixColumnIndexColumnName = nameof(ProductEntry.ProductID);
+                options.MatrixRowIndexColumnName = nameof(ProductEntry.CoPurchaseProductID);
+                options.LabelColumnName = "Label";
+                options.LossFunction = MatrixFactorizationTrainer.LossFunctionType.SquareLossOneClass;
+                options.Alpha = 0.01;
+                options.Lambda = 0.025;
+                // For better results use the following parameters
+                options.C = 0.00001;
 
-            var est = mlContext.Recommendation().Trainers.MatrixFactorization(options);
+                var est = mlContext.Recommendation().Trainers.MatrixFactorization(options);
 
-            //now is possible to train the model
-            ITransformer model = est.Fit(traindata);
+                //now is possible to train the model
+                ITransformer model = est.Fit(traindata);
 
-            //creating the preduction engine that is returned
-            predictionengine = mlContext.Model.CreatePredictionEngine<ProductEntry, Copurchase_prediction>(model);
+                //creating the preduction engine that is returned
+                var predictionengine = mlContext.Model.CreatePredictionEngine<ProductEntry, Copurchase_prediction>(model);
+                return predictionengine;
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
         }
 
         /// <summary>
         /// Use prediction engine to create a series of purchase that are correlated by suggestions, not use all the users, but only a portion of them
         /// 
         /// </summary>
-        public void PurchaseModelTrain()
+        public void PurchaseModelInsertion()
         {
-            
+            using (var connection = new SqlConnection(conn_str))
+            {
+                try
+                {
+                    var predictionengine = TrainModelAction();
+                    //foreach purchase already present select productID and check with all other ID using the prediction engine
+                    var purchaseList = connection.Query<CorePurchase>("SELECT * FROM CorePurchase").ToList();
+                    
+
+                    //declare the adjunctive purchase list
+                    List<CorePurchase> purchase = new List<CorePurchase>();
+                    Random dayRand = new Random();
+                    Random qtaRand = new Random();
+                    foreach (var elem in purchaseList)
+                    {
+                        var productList = connection.Query<CoreProduct>("SELECT * FROM CoreProduct WHERE ProdID<@LastID AND ProdID>@FirstID", new { LastID = elem.ProductID + 100, FirstID = elem.ProductID-100}).ToList();
+                        foreach (var prod in productList)
+                        {
+                            var prediction = predictionengine.Predict(
+                                new ProductEntry()
+                                {
+                                    ProductID = Convert.ToUInt32(elem.ProductID),
+                                    CoPurchaseProductID = Convert.ToUInt32(prod.ProdID)
+                                }
+                                );
+
+                            if (prediction.Score > 0.6)
+                            {
+                                int qta = qtaRand.Next(0, 100);
+                                int day = dayRand.Next(0, 730);
+                                //create new purchase
+                                CorePurchase tmp = new CorePurchase()
+                                {
+                                    ProductID = elem.ProductID,
+                                    UserID = elem.UserID,
+                                    PurchaseDate = DateTime.Now.AddDays(-day),
+                                    Quantity = qta
+                                };
+                                //insert inside the database the purchase
+                                purchase.Add(tmp);
+                            }
+                        }
+                    }
+
+                    connection.BulkInsert(purchase);
+                }catch(Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+                
         }
 
     }
