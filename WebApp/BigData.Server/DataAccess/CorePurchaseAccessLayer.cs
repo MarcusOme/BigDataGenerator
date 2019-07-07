@@ -200,6 +200,7 @@ namespace BigData.Server.DataAccess
                     Random qtaRand = new Random();
                     foreach (var elem in purchaseList)
                     {
+                        //modify the span to be more accurate
                         var productList = connection.Query<CoreProduct>("SELECT * FROM CoreProduct WHERE ProdID<@LastID AND ProdID>@FirstID", new { LastID = elem.ProductID + 100, FirstID = elem.ProductID-100}).ToList();
                         foreach (var prod in productList)
                         {
@@ -211,7 +212,8 @@ namespace BigData.Server.DataAccess
                                 }
                                 );
 
-                            if (prediction.Score > 0.6)
+                            //modify the percentage to be more or less precise while inserting
+                            if (prediction.Score > 0.2)
                             {
                                 int qta = qtaRand.Next(0, 100);
                                 int day = dayRand.Next(0, 730);
