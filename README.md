@@ -3,7 +3,7 @@
 ## Project info
 This project is currently an alpha version of big-data analysis. Actually is capable of creatig huge amount of data using a NetCore 3.0 interface using Blazor and MSSQL server as backend data storage solution.
 
-The goal of the project is to create a database that can simulate a medium dimension ebook commerce web site. The web part is used as controller to access the database and create the records. Is also possible to decide the number of record for each table inside the database.
+The goal of the project is to create a database that can simulate a medium dimension e-commerce web site. The web part is used as controller to access the database and create the records. Is also possible to decide the number of record for each table inside the database.
 
 ## Requirements
 This project requires several components to be installed and used on your machine:
@@ -27,5 +27,9 @@ In order to make the project work is necessary following those steps:
 
 - Open the project in Visual Studio Preview and debug it;
 
-- On the web page that opens you will find 3 buttons, each one create records for one of the three tables that are created,
+- On the web page that opens you will find 3 buttons, each one create records for one of the three tables that are created
+
+## Machine learning approach
+In order to fill the purchase table with more meaningful data an algorithm based on matrix factorization have been used to create a series of purchase based on the suggested product created inside a list (see [here](https://github.com/dotnet/machinelearning-samples/tree/master/samples/csharp/getting-started/MatrixFactorization_ProductRecommendation)).
+For the final user is possible to set a desired threshold for the purchase insertion probability percentage (I have decided for a 20% initial). Also is possible to rerun the algorithm multiple times to insert more purchase based on the ones that are already present.
 
