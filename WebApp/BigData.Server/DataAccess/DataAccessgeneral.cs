@@ -10,6 +10,7 @@ namespace BigData.Server.DataAccess
     /// </summary>
     public class DataAccessgeneral
     {
+        //connection string
         public string conn_str = @"Server=.\SQLExpress;Database=BigData;Trusted_Connection=True;MultipleActiveResultSets=true";
     }
 }

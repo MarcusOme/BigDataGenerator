@@ -55,7 +55,7 @@ namespace BigData.Server.DataAccess
                     }
 
                     //create the association using a random function
-                    int numberOfUsers = 20000;   //use this value to set the number of users to create
+                    int numberOfUsers = 200000;   //use this value to set the number of users to create
 
                     //set database for fast insertion
 

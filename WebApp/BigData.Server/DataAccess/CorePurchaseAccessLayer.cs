@@ -55,7 +55,7 @@ namespace BigData.Server.DataAccess
                     Random qtaRand = new Random();
 
                     //set a number of purchase -> for base purchasing
-                    int purchaseNumber = 30000;
+                    int purchaseNumber = 300000;
                     List<CorePurchase> purchase = new List<CorePurchase>();
                     for (int i = 0; i < purchaseNumber; i++)
                     {
@@ -199,7 +199,7 @@ namespace BigData.Server.DataAccess
                     foreach (var elem in purchaseList)
                     {
                         //modify the span to be more accurate
-                        var productList = connection.Query<CoreProduct>("SELECT * FROM CoreProduct WHERE ProdID<@LastID AND ProdID>@FirstID", new { LastID = elem.ProductID + 100, FirstID = elem.ProductID-100}).ToList();
+                        var productList = connection.Query<CoreProduct>("SELECT * FROM CoreProduct WHERE ProdID<@LastID AND ProdID>@FirstID", new { LastID = elem.ProductID + 20, FirstID = elem.ProductID-20}).ToList();
                         foreach (var prod in productList)
                         {
                             var prediction = predictionengine.Predict(
