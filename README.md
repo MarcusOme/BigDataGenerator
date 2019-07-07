@@ -37,3 +37,5 @@ In order to make the project work is necessary following those steps:
 In order to fill the purchase table with more meaningful data an algorithm based on matrix factorization have been used to create a series of purchase based on the suggested product created inside a list (see [here](https://github.com/dotnet/machinelearning-samples/tree/master/samples/csharp/getting-started/MatrixFactorization_ProductRecommendation)).
 For the final user is possible to set a desired threshold for the purchase insertion probability percentage (I have decided for a 20% initial). Also is possible to rerun the algorithm multiple times to insert more purchase based on the ones that are already present.
 
+## Extra
+Originally this work was created on EF Core 6 as database access model. Inside the project the line of code that were using this method are already present. If you want to use them remember to change the table name as tblCoreUser for example.
