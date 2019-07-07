@@ -25,9 +25,13 @@ In order to make the project work is necessary following those steps:
 
 - Create the database by using the scripts provided inside the repository. Remember that this setup is minimal, feel free to expand it if you need (also remember to change the code in web app also);
 
-- Open the project in Visual Studio Preview and debug it;
+- Open the project in Visual Studio Preview and search for the class DataAccessgeneral.cs and substitute the connection string with your own string;
 
-- On the web page that opens you will find 3 buttons, each one create records for one of the three tables that are created (using those provide only minimal configuration).
+- Debug the project;
+
+- On the web page that opens you will find 3 buttons, each one create records for one of the three tables that are created (using those provide only minimal configuration);
+
+- You can also use the ML approach implemented inside the project, inserting purchase based on reccomendation algorithm.
 
 ## Machine learning approach
 In order to fill the purchase table with more meaningful data an algorithm based on matrix factorization have been used to create a series of purchase based on the suggested product created inside a list (see [here](https://github.com/dotnet/machinelearning-samples/tree/master/samples/csharp/getting-started/MatrixFactorization_ProductRecommendation)).
