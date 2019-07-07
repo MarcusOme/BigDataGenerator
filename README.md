@@ -27,7 +27,7 @@ In order to make the project work is necessary following those steps:
 
 - Open the project in Visual Studio Preview and debug it;
 
-- On the web page that opens you will find 3 buttons, each one create records for one of the three tables that are created
+- On the web page that opens you will find 3 buttons, each one create records for one of the three tables that are created (using those provide only minimal configuration).
 
 ## Machine learning approach
 In order to fill the purchase table with more meaningful data an algorithm based on matrix factorization have been used to create a series of purchase based on the suggested product created inside a list (see [here](https://github.com/dotnet/machinelearning-samples/tree/master/samples/csharp/getting-started/MatrixFactorization_ProductRecommendation)).
