@@ -13,13 +13,11 @@ using Z.Dapper.Plus;
 
 namespace BigData.Server.DataAccess
 {
-    public class CorePurchaseAccessLayer
+    public class CorePurchaseAccessLayer : DataAccessgeneral
     {
         CorePurchaseContext db = new CorePurchaseContext();
         CoreUserContext db_user = new CoreUserContext();
         CoreProductContext db_prod = new CoreProductContext();
-
-        string conn_str = @"Server=.\SQLExpress;Database=BigData;Trusted_Connection=True;MultipleActiveResultSets=true";
 
         /// <summary>
         /// Function to get all the purchase present inside the database

@@ -11,11 +11,11 @@ using Z.Dapper.Plus;
 
 namespace BigData.Server.DataAccess
 {
-    public class CoreUserAccessLayer
+    public class CoreUserAccessLayer : DataAccessgeneral
     {
         //create the connection object
         CoreUserContext db = new CoreUserContext();
-        string conn_str = @"Server=.\SQLExpress;Database=BigData;Trusted_Connection=True;MultipleActiveResultSets=true";
+        
         /// <summary>
         /// Function to get all the users present inside the database
         /// </summary>
